@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Error | Discord Bot Index</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel=icon href="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        ::selection {
+    background: #4CBEFD;
+        }html::-webkit-scrollbar {
+    background: #3b3b3b;
+    width: 12px;
+}
+html::-webkit-scrollbar-thumb {
+    background: #4CBEFD;
+}
+        </style>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body id="body" style="background-color: rgb(47, 48, 48)">
+    <nav style="position: fixed;height: 64px;width: 100%;z-index: 1000;">
+        <div class="nav-wrapper" style="background-color: #2C2F33;">
+            <a href="/" class="brand-logo" style="margin-left: 6px; font-family: Josefin Sans; width:265px; height:60px">
+                <img src="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo.png" style="width: 60px; height: 59px; position: absolute">
+                <h5 style="font-size: 23px; margin-left: 80px;">Discord Bot Index</h5><img>
+                <i class="material-icons"></i>
+            </a>
+        </div>
+    </nav>
+    <br class="hide-on-med-and-up">
+    <br class="hide-on-med-and-up">
+    <br class="hide-on-med-and-up">
+    <br class="hide-on-med-and-up">
+    <div style="display:flex;min-width:80%;min-height:80%;margin-left:auto;margin-right:auto;padding-top:10%; align-self: auto;">
+        <div style="width:50%;">
+            <div style="margin-left:auto; margin-right:auto;width:70%; align-self: auto;">
+                <img src="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo-broken.png" style="width:100%;height:100%">
+            </div>
+        </div>
+        <div style="width:50%;">
+            <div id="mass" style="margin-left:auto;margin-right:auto;text-align:center;font-size:7vw; align-self: auto"><b>
+                    <%= code %></b></div>
+            <div id="unknown" style="margin-left:auto;margin-right:auto;text-align:center;font-size:16px; align-self: auto;">
+                <p>
+                    <%= info %>
+                </p>
+                <br>
+                <div style="align-self: auto;" class="hide-on-med-and-up">
+                    <a class="waves-effect waves-light btn" href="/" style="background-color: #4cbefd; font-size: 10px; width:160px; margin-left: 3px">
+                        <i class="material-icons right" style="color:#FFF; margin-top: 0px;">developer_mode</i>Back To Home</a>
+    
+                    <a class="waves-effect waves-light btn" href="https://discord.gg/9jkAUF3" style="background-color: #4cbefd; font-size: 10px; width:160px; margin-top: 8px;">
+                        <i class="material-icons right" style="color:#FFF; margin-top: 0px;">developer_mode</i>DBI Discord</a>
+                </div>
+            </div>
+
+            <div class= 'hide-on-med-and-down' style="display:inline-flex;margin-left:auto;margin-right:auto;width:100%;align-items:center;justify-content: center;margin-bottom:20px; align-self: auto;">
+                <a class="waves-effect waves-light btn" href="/" style="background-color: #4cbefd; font-size: 10px; width:160px;margin-right:15px; align-self: auto;">
+                    <i class="material-icons right" style="color:#FFF; margin-top: 0px;">developer_mode</i>Back To Home</a>
+                <a class="waves-effect waves-light btn" href="https://discord.gg/9jkAUF3" style="background-color: #4cbefd; font-size: 10px; width:160px; align-self: auto">
+                    <i class="material-icons right" style="color:#FFF; margin-top: 0px;">developer_mode</i>DBI Discord</a>
+            </div>
+
+        </div>
+    </div>
+    <br class="hide-on-med-and-up">
+    <br class="hide-on-med-and-up">
+    <br class="hide-on-med-and-up">
+    <br class="hide-on-med-and-up">
+    <br class="hide-on-med-and-up">
+    <footer class="page-footer" style="background-color: #2C2F33;">
+        <div class="footer-copyright">
+            <div class="container">
+                <a class="grey-text text-lighten-4" href="https://discord.gg/9jkAUF3">© 2018 LiquidBlast</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<style>
+    #mass {
+        color: #7de5ff;
+        font-size: 1500%;
+        height: 60%;
+    }
+
+    #unknown {
+        color: #FFF;
+    }
+</style>
+
+<script>
+    if (Math.floor(Math.random() * 180) == 12) //really? looking through the code? good job, you ruined the easter egg.
+    {
+        document.getElementById("unknown").innerText = "OOPSIE WOOPSIE!! Uwu We made a funky wunky!! A wittle funko boingo! The code monkeys at our headquarters are working VEWY HAWD to fix this!";
+    }
+</script>

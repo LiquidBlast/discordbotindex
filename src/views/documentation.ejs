@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Documentation | Discord Bot Index</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel=icon href="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo.png">
+    <meta name="description" content="Discord Bot Index - Platform/API Documentation">
+    <meta name="keywords" content="Discord, Discord Bots, Discord Economy Bots, Discord Bot List, Discord Boats, Discord Bot Groups, Community, Game, Free">
+    <meta name="robots" content="index, nofollow">
+    <meta name="web_author" content="Discord Bot Index">
+    <meta name="language" content="EN">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        ::selection {
+    background: #4CBEFD;
+        }html::-webkit-scrollbar {
+    background: #3b3b3b;
+    width: 12px;
+}
+html::-webkit-scrollbar-thumb {
+    background: #4CBEFD;
+}
+        </style>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body style="background-color: rgb(47, 48, 48)">
+    <nav style="position: fixed;height: 64px;width: 100%;z-index: 1000;">
+        <div class="nav-wrapper" style="background-color: #2C2F33;">
+            <a href="/" class="brand-logo" style="margin-left: 6px; font-family: Josefin Sans; width:265px; height:60px">
+                <img src="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo.png" style="width: 60px; height: 59px; position: absolute">
+                <h5 style="font-size: 23px; margin-left: 80px;">Discord Bot Index</h5><img>
+                <i class="material-icons"></i>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <a class="waves-effect waves-light btn" href='/bots' style="background-color:#4cbefd; font-size: 10px; width:100px;">
+                    <i class="material-icons right" style="color:#FFF; margin-top: 0px">dashboard</i>Bots</a>
+                    
+                    <a class="waves-effect waves-light btn" href='/submit' style="background-color:#4cbefd; font-size: 10px; width:100px;">
+                        <i class="material-icons right" style="color:#FFF; margin-top: 0px">control_point</i>Add Bot</a>
+
+                <a class="waves-effect waves-light btn" href='/documentation' style="background-color: #4cbefd; font-size: 10px; width:100px;">
+                    <i class="material-icons right" style="color:#FFF; margin-top: 0px;">developer_mode</i>Docs</a>
+
+                    <a class="waves-effect waves-light btn" href='/spotlight' style="background-color: #4cbefd; font-size: 10px; width:auto;">
+                        <i class="material-icons right" style="color:#FFF; margin-top: 0px;">done</i>Spotlight</a>
+
+                        <a class="waves-effect waves-light btn dropdown-trigger" data-target='dropdown1' href='<%= link %>' style="background-color:#4cbefd; font-size: 10px; width:auto;">
+                            <i class="material-icons right" style="color:#FFF; margin-top: 0px">account_circle</i>
+                    <%= username %></a>
+                    <% if(user !== 0) { %>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="/apiv1/logout">Logout</a></li>
+                          </ul>
+                          <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems);
+      });</script>
+                          <% } %> 
+            </ul>
+            <ul id="slide-out" class="sidenav" style="background-color:rgb(144, 147, 148)">
+                <li>
+                    <div class="user-view">
+                        <div class="background" style="background-color:#2C2F33"></div>
+                        <% if(user !== 0) { %>
+                        <a href="#name" style="color:#3b3b3b"><span class="white-text name">
+                                <%= username %></span></a>
+                        <a href="/apiv1/logout" style="color:#3b3b3b"><span class="white-text name">
+                                Logout</span>
+                            <br></a>
+                        <% } %>
+                        <% if(user == 0) { %>
+                        <a href="/apiv1/login" style="color:#3b3b3b"><img class="circle" src="/img/logo.png"></a>
+                        <a href="/apiv1/login" style="color:#3b3b3b"><span class="white-text name">Not Logged In</span><br></a>
+                        <% } %>
+                    </div>
+                </li>
+                <% if(user !== 0) { %>
+                <!--<li><a href="/profile/<%=user.userid%>"><i class="material-icons">account_circle</i>Profile</a></li>-->
+                <li><a href="/submit"><i class="material-icons">add_circle</i>Add Bot</a></li>
+                <% } %>
+                <% if(user == 0) { %>
+                <li><a href="/apiv1/login"><i class="material-icons">cloud</i>Log In</a></li>
+                <% } %>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="subheader">Directory</a></li>
+                <li><a class="waves-effect" href="/documentation"><i class="material-icons">edit</i>Documentation</a></li>
+                <li><a class="waves-effect" href="/bots"><i class="material-icons">book</i>Bot Index</a></li>
+                <li><a class="waves-effect" href="/search"><i class="material-icons">search</i>Search Bots</a></li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col s12 m12 l12">
+            <div class="card" style="margin: auto; width: auto; background-color: #3b3b3b; align-self: auto; margin-top: 10px;">
+                <div class="card-content white-text">
+                    <span class="card-title" style="text-align: center; margin-bottom: 10px; margin-top: -10px;">Platform
+                        Documentation</a>
+                    </span>
+                    <p style="width: auto; text-align: center; margin: auto; color:#AAA;"><em>Please read the
+                            documentation carefully to prevent potential confusion or punishment over misuse.</em></p>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="card" style="border:2px solid #7c7d7e; margin: auto; align-self: auto; background-color: #3b3b3b; margin-top: 20px;">
+            <div class="card-content white-text">
+                <h5 style="text-align: center;">API - Available Endpoints</h5>
+                <h6 style="text-align:center">All endpoints begin with /apiv1</h6>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Endpoint</th>
+                            <th>Type</th>
+                            <th>Authentication</th>
+                            <th>Info</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>/bot/:BOTID</td>
+                            <td>GET</td>
+                            <td>False</td>
+                            <td>This will return bot information in a JSON format. Pretty straightforward.</td>
+                        </tr>
+                        <tr>
+                            <td>/bot/:BOTID</td>
+                            <td>POST</td>
+                            <td>True</td>
+                            <td>Posts given server count to the API. Currently the only options are server_count. This requires an API token which can be
+                                found on the edit page for your bot. The body should contain your server count, while
+                                your auth token should be placed in a Authentication header.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <hr style="color: gray">
+                <br>
+                <br>
+                <h5 style="text-align: center;">API - Ratelimits</h5>
+                <h6 style="text-align:center">We aren't strict about these, but failing to use common sense will result
+                    in your access to the service being revoked.</h6>
+                <br>
+                <br>
+                <p style="text-align: justify;">All endpoints are open, and allow for normal usage. We monitor the API
+                    very closely, and will
+                    contact you if your usage becomes excessive. For most users, this won't be a problem, just use the
+                    API like you would any other. If we think something might be wrong, we will contact you.</p>
+                <br>
+                <hr style="color: gray">
+                <br>
+                <h5 style="text-align: center;">Bots - Voting Webhooks</h5>
+                <h6 style="text-align:center">We do things a little differently than most.</h6>
+                <br>
+                <br>
+                <p style="text-align: justify">Unlike many other 'bot listing' platforms (yes, we see you) - we try to
+                    make voting as easy as
+                    possible. When a user votes, a timer shows up for them to let them know when they can vote again.
+                    For bot developers, it is easy to track when someone votes, and who voted. After approval your bots
+                    edit page will show two new segments. One asking for a webhook ID, and one asking for a webhook
+                    token. If you couldn't tell by now, we send voting webhooks via discord! This allows those without
+                    reliable hosting to offer rewards to voting users without feeling left out. It also provides an
+                    easier managment system for you! All you have to do is create a discord channel webhook, and supply
+                    the information in the form. Save your changes, and viola! All done.
+                    <br>
+                    <br>
+                    For those who might not know where to find this information - in the webhook link below, the bolded
+                    text is the webhook ID, and the italicized text is the webhook token. <br><br>https://discordapp.com/api/webhooks/<b>498355618537799710</b>/<em>yFJQJmoRaJMB4sR2Lp2h-7EMg5KUVi0NZp2W0yE3cVB3EySeipEr9RdaX6qH5lDAPRUY</em>
+                    <br>
+                    <br>
+                    To track upvotes, set your bot to watch the channel the webhook is on/in - and get the message
+                    content, which in this case - will be the id of the user who voted.
+                </p>
+                <br>
+                <hr style="color: gray">
+                <br>
+                <h5 style="text-align: center;">Bots - Spotlight</h5>
+                <h6 style="text-align:center">Spotlight is our program for bots which are just bit better than the rest, that deserve special recognition!</h6>
+                <br>
+                <br>
+                <p style="text-align: justify;">The requirements are very relaxed. You can view them below!</p><br>
+                <ul>
+                    <li>1. Post bot server count to our API</li>
+                    <li>2. At least 50 servers</li>
+                    <li>3. Unique features (NOT MULTIPURPOSE)</li>
+                    <li>4. Follow the Discord Bot Best Practices: https://github.com/meew0/discord-bot-best-practices</li>
+                    <li>5. 24/7 hosting, SOME maintenance is allowed</li>
+                    <li>6. Been on the list for at LEAST 3 days</li>
+                    </ul>
+                <hr style="color: gray">
+                <br>
+                <h5 style="text-align: center;">Bots - Botpage HTML</h5>
+                <h6 style="text-align:center">Yes! HTML! Just, with limits. Below is the list of allowed HTML content
+                    along with a W3Schools link. Currently, all CSS is disabled - this may change in the future.</h6>
+                <br>
+                <br>
+                <table style="text-align: center; text-overflow: ellipsis;">
+                    <thead>
+                        <tr>
+                            <th>Content</th>
+                            <th>Info</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>"b"</td>
+                            <td>https://www.w3schools.com/tags/tag_b.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"p"</td>
+                            <td>https://www.w3schools.com/tags/tag_p.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"a"</td>
+                            <td>https://www.w3schools.com/tags/tag_a.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"table"</td>
+                            <td>https://www.w3schools.com/tags/tag_table.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"tr"</td>
+                            <td>https://www.w3schools.com/tags/tag_tr.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"td"</td>
+                            <td>https://www.w3schools.com/tags/tag_td.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"strong"</td>
+                            <td>https://www.w3schools.com/tags/tag_strong.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"h1-h6"</td>
+                            <td>https://www.w3schools.com/tags/tag_hn.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"em"</td>
+                            <td>https://www.w3schools.com/tags/tag_em.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"ul"</td>
+                            <td>https://www.w3schools.com/tags/tag_ul.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"ol"</td>
+                            <td>https://www.w3schools.com/tags/tag_ol.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"hr"</td>
+                            <td>https://www.w3schools.com/tags/tag_hr.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"cite"</td>
+                            <td>https://www.w3schools.com/tags/tag_cite.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"caption"</td>
+                            <td>https://www.w3schools.com/tags/tag_caption.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"del"</td>
+                            <td>https://www.w3schools.com/tags/tag_del.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"dl"</td>
+                            <td>https://www.w3schools.com/tags/tag_dl.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"dt"</td>
+                            <td>https://www.w3schools.com/tags/tag_dt.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"dd"</td>
+                            <td>https://www.w3schools.com/tags/tag_dd.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"li"</td>
+                            <td>https://www.w3schools.com/tags/tag_li.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"mark"</td>
+                            <td>https://www.w3schools.com/tags/tag_mark.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"pre"</td>
+                            <td>https://www.w3schools.com/tags/tag_pre.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"s"</td>
+                            <td>https://www.w3schools.com/tags/tag_s.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"small"</td>
+                            <td>https://www.w3schools.com/tags/tag_small.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"u"</td>
+                            <td>https://www.w3schools.com/tags/tag_u.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"center"</td>
+                            <td>https://www.w3schools.com/tags/tag_center.asp</td>
+                        </tr>
+                        <tr>
+                            <td>"br"</td>
+                            <td>https://www.w3schools.com/tags/tag_br.asp</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--JavaScript at end of body for optimized loading-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+    </script>
+    <footer class="page-footer" style="background-color:#2C2F33;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About Us</h5>
+                    <p class="grey-text text-lighten-4">Discord Bot Index is a community based index/listing for
+                        Discord Bots of all types. Thank you for visting this site - you are supporting a platform that
+                        aims to support the amazing Discord Bot creators that make the community special.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="/submit">Add Your Bot</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://discord.gg/9jkAUF3">Community Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright" style="background-color: #3b3b3b;">
+            <div class="container">
+                © 2018 LiquidBlast
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

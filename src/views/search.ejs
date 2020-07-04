@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search | Discord Bot Index</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel=icon href="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo.png">
+    <meta name="description" content="Discord Bot Index - Search for a Discord Bot from our diverse range of Discord Bots.">
+    <meta name="keywords" content="Discord, Discord Bots, Discord Economy Bots, Discord Bot List, Discord Boats, Discord Bot Groups, Community, Game, Free">
+    <meta name="robots" content="index, nofollow">
+    <meta name="web_author" content="Discord Bot Index">
+    <meta name="language" content="EN">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        ::selection {
+    background: #4CBEFD;
+        }html::-webkit-scrollbar {
+    background: #3b3b3b;
+    width: 12px;
+}
+html::-webkit-scrollbar-thumb {
+    background: #4CBEFD;
+}
+        </style>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body style="background-color: rgb(47, 48, 48)">
+    <nav style="position: fixed;height: 64px;width: 100%;z-index: 1000;">
+        <div class="nav-wrapper" style="background-color: #2C2F33;">
+            <a href="/" class="brand-logo" style="margin-left: 6px; font-family: Josefin Sans; width:265px; height:60px">
+                <img src="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo.png" style="width: 60px; height: 59px; position: absolute">
+                <h5 style="font-size: 23px; margin-left: 80px;">Discord Bot Index</h5><img>
+                <i class="material-icons"></i>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <a class="waves-effect waves-light btn" href='/bots' style="background-color:#4cbefd; font-size: 10px; width:100px;">
+                    <i class="material-icons right" style="color:#FFF; margin-top: 0px">dashboard</i>Bots</a>
+                    
+                    <a class="waves-effect waves-light btn" href='/submit' style="background-color:#4cbefd; font-size: 10px; width:100px;">
+                        <i class="material-icons right" style="color:#FFF; margin-top: 0px">control_point</i>Add Bot</a>
+
+                <a class="waves-effect waves-light btn" href='/documentation' style="background-color: #4cbefd; font-size: 10px; width:100px;">
+                    <i class="material-icons right" style="color:#FFF; margin-top: 0px;">developer_mode</i>Docs</a>
+
+                    <a class="waves-effect waves-light btn" href='/spotlight' style="background-color: #4cbefd; font-size: 10px; width:auto;">
+                        <i class="material-icons right" style="color:#FFF; margin-top: 0px;">done</i>Spotlight</a>
+
+                        <a class="waves-effect waves-light btn dropdown-trigger" data-target='dropdown1' href='<%= link %>' style="background-color:#4cbefd; font-size: 10px; width:auto;">
+                            <i class="material-icons right" style="color:#FFF; margin-top: 0px">account_circle</i>
+                    <%= username %></a>
+                    <% if(user !== 0) { %>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="/apiv1/logout">Logout</a></li>
+                          </ul>
+                          <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems);
+      });</script>
+                          <% } %> 
+            </ul>
+            <ul id="slide-out" class="sidenav" style="background-color:rgb(144, 147, 148)">
+                <li>
+                    <div class="user-view">
+                        <div class="background" style="background-color:#2C2F33"></div>
+                        <% if(user !== 0) { %>
+                        <a href="#name" style="color:#3b3b3b"><span class="white-text name">
+                                <%= username %></span></a>
+                        <a href="/apiv1/logout" style="color:#3b3b3b"><span class="white-text name">
+                                Logout</span>
+                            <br></a>
+                        <% } %>
+                        <% if(user == 0) { %>
+                        <a href="/apiv1/login" style="color:#3b3b3b"><img class="circle" src="https://raw.githubusercontent.com/LiquidBlast/discordbotindex-branding/master/logos/logo.png"></a>
+                        <a href="/apiv1/login" style="color:#3b3b3b"><span class="white-text name">Not Logged In</span><br></a>
+                        <% } %>
+                    </div>
+                </li>
+                <% if(user !== 0) { %>
+                <!--<li><a href="/profile/<%=user.userid%>"><i class="material-icons">account_circle</i>Profile</a></li>-->
+                <li><a href="/submit"><i class="material-icons">add_circle</i>Add Bot</a></li>
+                <% } %>
+                <% if(user == 0) { %>
+                <li><a href="/apiv1/login"><i class="material-icons">cloud</i>Log In</a></li>
+                <% } %>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="subheader">Directory</a></li>
+                <li><a class="waves-effect" href="/documentation"><i class="material-icons">edit</i>Documentation</a></li>
+                <li><a class="waves-effect" href="/bots"><i class="material-icons">book</i>Bot Index</a></li>
+                <li><a class="waves-effect" href="/search"><i class="material-icons">search</i>Search Bots</a></li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <section>
+        <br>
+        <br>
+        <div class="card-panel center-align" style="background-color:#3b3b3b; align-self: auto; height: auto;">
+            <div class="row">
+                <!-- <div class="col s12 m4"> -->
+                <div class="card center-align" style="background-color: #2C2F33; width: auto; display: inline-block; margin-left:auto; margin-right:auto;">
+                    <div class="card-content white-text">
+
+                        <span class="card-title" style="font-size: 32px; text-align: center;">
+                            <i class="material-icons center" style="margin-right: 5px">new_releases</i>Bots - Manual
+                            Search</span>
+                        <% if(isEmpty == 'n') { %>
+                        <p style="text-align: center;">
+                            Results based on query:
+                            <br>
+                            "
+                            <%= search %>"
+                        </p>
+                        <br>
+                        <p style="text-align: center; color:#4cbefd">
+                            <%= noneFound %>
+                            <br>
+                            Total Results:
+                            <%= total %>
+                        </p>
+                        <% } %>
+                    </div>
+                    <div class="card-action" style="text-align: center">
+                        <form action="/search?search=" , method="GET">
+                            <div class="input-field">
+                                <i class="material-icons prefix">search</i>
+                                <input id="search" type="text" class="validate" required="" name="search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- </div> -->
+    </section>
+    <div id="fullbody" style="display:flex;flex-wrap:wrap;">
+        <% if(isEmpty == 'n') { %>
+        <% data.forEach((e) => { %>
+        <div class="card" style="width: 240px; height: 432px; background-color: rgb(44, 47, 51); display: inline-block; box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 3px 1px -2px, rgba(0, 0, 0, 0.2) 0px 1px 5px 0px; position: relative; margin: 1rem;"><a
+                id="card-clicky-<%= e.botid %>" href="https://discordbotindex.com/bot/<%= e.botid %>">
+                <img id="card-img-<%= e.botid %>" class="activator" src="https://images.discordapp.net/avatars/<%=e.botid%>/<%=e.avatar%>.png?size=512"
+                    style="width: 200px; height: 200px; margin: 13px 20px 0px; background-origin: padding-box; border-radius: 10px;"></a>
+            <div id="card-content-<%= e.botid %>" style="background-color: rgb(44, 47, 51); padding-left: 24px; padding-right: 24px;"><a
+                    class="card-title activator" href="https://discordbotindex.com/bot/<%= e.botid %>" style="font-weight: 450; color: rgba(255, 255, 255, 0.8); display: block; line-height: 32px; font-size: 24px;">
+                    <%= e.name.slice(0,-5) %></a>
+                <p style="color: rgb(170, 170, 170); font-weight: 500; margin-bottom: 12px; text-align: center; font-size: 12px; width: 100%; border-top: 2px solid rgb(68, 68, 68); border-bottom: 2px solid rgb(68, 68, 68); margin-top: 6px; min-height: 109px; overflow-wrap: break-word;">
+                    <%= e.shortdesc %>
+                </p><a href="https://discordbotindex.com/bot/<%= e.botid %>" class="waves-effect waves-light btn" style="background-color: rgb(76, 190, 253); float: left; width: 47%;">VIEW</a><a
+                    href="https://discordapp.com/oauth2/authorize?client_id=<%=e.botid%>&scope=bot&permissions=0" class="waves-effect waves-light btn"
+                    style="background-color: rgb(76, 190, 253); float: right; width: 47%;">INVITE</a>
+            </div>
+        </div>
+        <% }) %>
+        <% } %>
+    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+    </script>
+    <footer class="page-footer" style="background-color:#2C2F33;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About Us</h5>
+                    <p class="grey-text text-lighten-4">Discord Bot Index is a community based index/listing for
+                        Discord Bots of all types. Thank you for visting this site - you are supporting a platform that
+                        aims to support the amazing Discord Bot creators that make the community special.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="/submit">Add Your Bot</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://discord.gg/9jkAUF3">Community Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright" style="background-color: #3b3b3b;">
+            <div class="container">
+                © 2018 LiquidBlast
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
